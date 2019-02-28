@@ -5,25 +5,22 @@ arrayState(1:numel(array), changeNumber) = array;
 changeNumber = changeNumber+1;
 while swapped
     swapped = false;
-    for currentPos = 1:numel(array)-1
+    for currentPos = (1:numel(array)-1)
         if (array(currentPos) > array(currentPos+1))
-            temp = array(currentPos);
-            array(currentPos) = array(currentPos+1);
-            array(currentPos+1) = temp;
+            array([currentPos currentPos+1]) = array([currentPos+1 currentPos]);
             arrayState(1:numel(array), changeNumber) = array;
             changeNumber = changeNumber + 1;
             swapped = true;
         end
     end
-    if (~swapped)
-        return
+    if ~swapped
+        break
     end
-    for currentPos = numel(array)-2:1
+    swapped = false;
+    for currentPos = (numel(array)-1:-1:1)
         if(array(currentPos) > array(currentPos + 1))
-            temp = array(currentPos);
-            array(currentPos) = array(currentPos+1);
-            array(currentPos+1) = temp;
-            arrayState(1:numel(array), changeNumber) = input;
+            array([currentPos currentPos+1]) = array([currentPos+1 currentPos]);
+            arrayState(1:numel(array), changeNumber) = array;
             changeNumber = changeNumber + 1;
             swapped = true;
         end
