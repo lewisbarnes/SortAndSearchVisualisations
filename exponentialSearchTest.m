@@ -9,6 +9,8 @@ for N = 1:1024
         worstComparisons(N) = max(comparisons);
         clear comparisons;
 end
+[numComparisons, currentIndex] = exponentialSearch(1:17,10);
+disp(currentIndex);
 figure;
 plot([1:1024], bestComparisons, 'g', 'LineWidth', 1);
 hold on;

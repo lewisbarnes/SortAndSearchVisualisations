@@ -2,8 +2,9 @@ function [numComparisons, currentIndex] = binarySearch(array, target, minIndex, 
 L = minIndex;
 R = maxIndex;
 numComparisons = 0;
+currentIndex = 0;
 while L < R
-    currentIndex = int16(floor((L+R)/2));
+    currentIndex = int16((L+R)/2);
     if(array(currentIndex) < target)
         L = currentIndex + 1;
         numComparisons = numComparisons + 1;
